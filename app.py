@@ -12,11 +12,15 @@ try:
 except:
     pass
 
+# listar
+
 @app.route("/list", methods=['GET'])
 def listarTarefas():    
     tarefas = pd.read_csv('Text.csv')
     tarefas = tarefas.to_dict('records')    
     return jsonify(tarefas)
+
+# adicionar
 
 @app.route("/add", methods=['POST'])
 def addTarefas():
@@ -31,6 +35,8 @@ def addTarefas():
     tarefas = tarefas.to_dict('records')        
     return jsonify(tarefas)
 
+# editar
+
 @app.route('/update/<string:tarefa_antiga>/<string:tarefa_nova>', methods=['PUT'])
 def update_user(tarefa_antiga, tarefa_nova):
     tarefas = pd.read_csv('Text.csv')
@@ -41,6 +47,8 @@ def update_user(tarefa_antiga, tarefa_nova):
             tarefas.to_csv('Text.csv', index=False)
             return "Tarefa alterada com sucesso"
     return "Tarefa não encontrada"
+
+# deletar
 
 @app.route('/delete/<int:id>', methods=['DELETE'])
 def delete_user(id):
