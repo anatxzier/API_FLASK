@@ -17,7 +17,7 @@ function getData(data) {
                 data-bs-target="#modalexcluir"><span class="material-symbols-outlined text-danger">
                 delete
                 </span></button><button class="btn" type="button" data-bs-toggle="modal"
-                data-bs-target="#modaleditar" onclick="editarID('${item.TAREFA}')"><span class="material-symbols-outlined text-success">
+                data-bs-target="#modaleditar" onclick="editar('${item.TAREFA}')"><span class="material-symbols-outlined text-success">
                 edit
                 </span></button></td>
             </tr>
